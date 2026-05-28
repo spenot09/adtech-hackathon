@@ -27,7 +27,8 @@ End-to-end demo flow (DEMO-01): create a travel-brand agent → configure → st
   2. User can launch a "create agent" form and submit name, brand, goal, daily budget cap, max CPC, autonomy mode (manual/assisted/autonomous), target intents, and blocked categories.
   3. A newly created agent appears in the dashboard list with status "paused" (not yet running).
   4. Agent configuration persists across navigation within the session (in-memory store is fine).
-**Plans:** TBD
+**Plans:**
+  - 01-01: App Shell And Agent Configuration Dashboard (Wave 1)
 **UI hint:** yes
 
 ### Phase 2: Live Bidding Simulation
@@ -76,7 +77,7 @@ End-to-end demo flow (DEMO-01): create a travel-brand agent → configure → st
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Agent Studio Shell | 0/0 | Not started | - |
+| 1. Agent Studio Shell | 1/1 | Planned | - |
 | 2. Live Bidding Simulation | 0/0 | Not started | - |
 | 3. Analytics & Safety Rails | 0/0 | Not started | - |
 | 4. Human-in-the-Loop & Demo Polish | 0/0 | Not started | - |
