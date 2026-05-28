@@ -51,7 +51,7 @@ export const analyticsCampaigns: AnalyticsCampaign[] = [
     averageCpc: 2.36,
     maxCpcGuardrail: 3.25,
     skippedUnsafePrompts: 19,
-    blockedCategoriesCount: 3,
+    blockedCategoriesCount: 2,
     unsupportedClaimsPrevented: 7,
     unsafeSpendAvoided: 640,
     series: [
