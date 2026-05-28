@@ -61,7 +61,8 @@ AgentBid Studio can become a production-grade agent control plane by sending bid
   3. The agent never submits a bid above the configured max CPC, even when opportunities request higher amounts.
   4. Opportunities matching a blocked category are visibly skipped/blocked in the feed with a reason, and the skipped count increments.
   5. User can pause and resume any agent from the dashboard; pausing immediately halts new bids.
-**Plans:** TBD
+**Plans:**
+  - 03-01: Analytics Tab For Adidas Vs New Balance Demo (Wave 1)
 **UI hint:** yes
 
 ### Phase 4: Human-in-the-Loop & Demo Polish
@@ -97,6 +98,6 @@ AgentBid Studio can become a production-grade agent control plane by sending bid
 |-------|----------------|--------|-----------|
 | 1. Agent Studio Shell | 1/1 | Planned | - |
 | 2. Live Bidding Simulation | 0/0 | Not started | - |
-| 3. Analytics & Safety Rails | 0/0 | Not started | - |
+| 3. Analytics & Safety Rails | 0/1 | Planned | - |
 | 4. Human-in-the-Loop & Demo Polish | 0/0 | Not started | - |
 | 5. Overmind Agent Supervision | 0/0 | Deferred | - |
