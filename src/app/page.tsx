@@ -57,7 +57,7 @@ const tabCopy: Record<
     eyebrow: "Analytics",
     title: "Running Performance Campaign Analytics",
     description:
-      "Compare Adidas and New Balance spend, revenue, ROAS, pacing, and safety impact for the 4-minute kilometer demo.",
+      "Compare Nike and New Balance spend, revenue, ROAS, pacing, and safety impact for the 4-minute kilometer demo.",
     phase: "Phase 3",
     phaseBody: "Seeded analytics are used until Phase 2 emits live campaign events.",
   },

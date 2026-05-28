@@ -35,7 +35,7 @@ export type AnalyticsSeriesPoint = {
 
 export type AnalyticsCampaign = {
   id: string;
-  brand: "Adidas" | "New Balance";
+  brand: "Nike" | "New Balance";
   campaignName: string;
   accent: "charcoal" | "red";
   budgetCap: number;

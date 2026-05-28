@@ -2,9 +2,9 @@ import type { AnalyticsCampaign, RevenueSegment } from "./types";
 
 export const analyticsCampaigns: AnalyticsCampaign[] = [
   {
-    id: "adidas-fastest-shoes",
-    brand: "Adidas",
-    campaignName: "Adidas - Fastest Shoes on the planet",
+    id: "nike-alphafly-3",
+    brand: "Nike",
+    campaignName: "Nike - Alphafly 3",
     accent: "charcoal",
     budgetCap: 6400,
     spend: 4820,
@@ -76,14 +76,14 @@ export const analyticsCampaigns: AnalyticsCampaign[] = [
 export const revenueSegments: RevenueSegment[] = [
   {
     segment: "Running shoes",
-    leadingCampaign: "Adidas - Fastest Shoes on the planet",
+    leadingCampaign: "Nike - Alphafly 3",
     clicks: 1264,
     spend: 2860,
     revenue: 15180,
   },
   {
     segment: "Speed training",
-    leadingCampaign: "Adidas - Fastest Shoes on the planet",
+    leadingCampaign: "Nike - Alphafly 3",
     clicks: 842,
     spend: 2140,
     revenue: 10920,
@@ -97,7 +97,7 @@ export const revenueSegments: RevenueSegment[] = [
   },
   {
     segment: "Marathon gear",
-    leadingCampaign: "Adidas - Fastest Shoes on the planet",
+    leadingCampaign: "Nike - Alphafly 3",
     clicks: 612,
     spend: 1680,
     revenue: 7840,

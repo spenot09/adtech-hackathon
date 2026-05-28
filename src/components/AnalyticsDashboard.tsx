@@ -30,7 +30,7 @@ export function AnalyticsDashboard() {
             <BarChart3 size={16} />
             Comparison mode
             <span className="rounded-full border border-line bg-white px-2 py-0.5 text-xs text-slate-500">
-              Adidas vs New Balance
+              Nike vs New Balance
             </span>
           </div>
         </div>
@@ -64,8 +64,8 @@ export function AnalyticsDashboard() {
         />
       </section>
 
-      <section className="grid min-w-0 gap-5 xl:grid-cols-[minmax(0,1fr)_360px]">
-        <div className="min-w-0 rounded-md border border-line bg-white p-4 shadow-soft">
+      <section className="grid min-w-0 items-start gap-5 xl:grid-cols-[minmax(0,1fr)_360px]">
+        <div className="min-w-0 self-start rounded-md border border-line bg-white p-4 shadow-soft">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <h2 className="text-base font-semibold text-ink">
@@ -80,7 +80,7 @@ export function AnalyticsDashboard() {
           <SpendRevenueChart campaigns={analyticsCampaigns} />
         </div>
 
-        <div className="grid gap-5">
+        <div className="grid gap-5 self-start">
           <BudgetPacing campaigns={analyticsCampaigns} />
           <SafetyGuardrails campaigns={analyticsCampaigns} />
         </div>
@@ -226,8 +226,8 @@ function SpendRevenueChart({ campaigns }: { campaigns: AnalyticsCampaign[] }) {
 function Legend() {
   return (
     <div className="flex flex-wrap gap-3 text-xs font-medium text-slate-500">
-      <LegendItem color="#2563eb" label="Adidas spend" />
-      <LegendItem color="#111827" dashed label="Adidas revenue" />
+      <LegendItem color="#2563eb" label="Nike spend" />
+      <LegendItem color="#111827" dashed label="Nike revenue" />
       <LegendItem color="#ef4444" label="New Balance spend" />
       <LegendItem color="#dc2626" dashed label="New Balance revenue" />
     </div>

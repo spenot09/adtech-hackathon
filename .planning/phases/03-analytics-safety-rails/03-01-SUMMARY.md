@@ -11,7 +11,7 @@ requires:
   - 01-01
 provides:
   - Analytics tab
-  - Seeded Adidas vs New Balance analytics dataset
+  - Seeded Nike vs New Balance analytics dataset
   - Spend/revenue chart
   - Budget pacing and safety analytics panels
 affects:
@@ -40,7 +40,7 @@ key-files:
     - src/lib/types.ts
 key-decisions:
   - Phase 3 analytics is decoupled from Phase 2 and uses seeded deterministic campaign data.
-  - The analytics tab compares `Adidas - Fastest Shoes on the planet` and `New Balance - 530`.
+  - The analytics tab compares `Nike - Alphafly 3` and `New Balance - 530`.
   - The page is analytics-only: no bidding feed, bid buttons, auction winner module, or prompt stream.
   - Wide charts and tables use internal scrolling on small screens while the page itself avoids horizontal overflow.
 requirements-completed:
@@ -56,14 +56,14 @@ requirements-completed:
 completed: 2026-05-28
 ---
 
-# Phase 3 Plan 01: Analytics Tab For Adidas Vs New Balance Demo Summary
+# Phase 3 Plan 01: Analytics Tab For Nike Vs New Balance Demo Summary
 
-Built the Analytics tab for the Adidas vs New Balance running-performance demo. The page follows the ad-platform analytics reference direction with top KPI cards, spend/revenue charting, budget pacing, safety guardrail analytics, campaign performance, and revenue breakdown tables.
+Built the Analytics tab for the Nike vs New Balance running-performance demo. The page follows the ad-platform analytics reference direction with top KPI cards, spend/revenue charting, budget pacing, safety guardrail analytics, campaign performance, and revenue breakdown tables.
 
 ## What Changed
 
 - Added analytics campaign types and deterministic seed data for:
-  - `Adidas - Fastest Shoes on the planet`
+  - `Nike - Alphafly 3`
   - `New Balance - 530`
 - Added `AnalyticsDashboard` with:
   - Total Spend
@@ -90,7 +90,7 @@ Built the Analytics tab for the Adidas vs New Balance running-performance demo. 
 - Browser verification against `http://127.0.0.1:3001` passed:
   - Analytics tab is reachable from the sidebar.
   - `Running Performance Campaign Analytics` is visible.
-  - `Adidas - Fastest Shoes on the planet` is visible.
+  - `Nike - Alphafly 3` is visible.
   - `New Balance - 530` is visible.
   - KPI cards for spend, revenue, ROAS, average CPC, conversions, budget remaining, and skipped unsafe are visible.
   - `Bids won` is visible in the campaign performance table.

@@ -62,7 +62,7 @@ AgentBid Studio can become a production-grade agent control plane by sending bid
   4. Opportunities matching a blocked category are visibly skipped/blocked in the feed with a reason, and the skipped count increments.
   5. User can pause and resume any agent from the dashboard; pausing immediately halts new bids.
 **Plans:**
-  - 03-01: Analytics Tab For Adidas Vs New Balance Demo (Wave 1)
+  - 03-01: Analytics Tab For Nike Vs New Balance Demo (Wave 1)
 **UI hint:** yes
 
 ### Phase 4: Human-in-the-Loop & Demo Polish
