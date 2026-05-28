@@ -1,2 +1,9 @@
 .codex
 .claude
+node_modules
+.next
+out
+dist
+*.tsbuildinfo
+.env*.local
+.next-dev*.log
