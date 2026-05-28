@@ -1,2 +1,17 @@
 .codex
 .claude
+
+# Next.js
+node_modules/
+.next/
+out/
+build/
+
+# TypeScript
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# Misc
+.DS_Store
+*.log
+npm-debug.log*
