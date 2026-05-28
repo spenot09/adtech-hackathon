@@ -1,0 +1,9 @@
+[agent.bid-decision]
+name = "bid-decision"
+entrypoint = "src/agent/decideBid.ts"
+symbol = "decideBid"
+input_type = "{ opportunity: Opportunity, agentConfig: Agent }"
+output_type = "BidDecision"
+policy = ".overmind/policy.md"
+eval_spec = ".overmind/eval-spec.md"
+dataset = "data/bid-decision-cases.json"

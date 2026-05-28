@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.100.0",
+    "@overmind-lab/trace-sdk": "^0.0.6",
     "lucide-react": "^0.468.0",
     "next": "^14.2.23",
+    "openai": "^6.39.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
