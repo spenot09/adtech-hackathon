@@ -50,9 +50,6 @@ export function AgentDashboard({
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-5 py-4">
           <div>
             <h2 className="text-base font-semibold text-ink">Agent control room</h2>
-            <p className="mt-1 text-sm text-slate-500">
-              Campaign agents are paused until live bidding is added in Phase 2.
-            </p>
           </div>
           <span className="rounded-full border border-line bg-panel px-3 py-1 text-xs font-medium text-slate-600">
             Session state

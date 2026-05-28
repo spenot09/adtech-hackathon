@@ -29,39 +29,31 @@ const navItems = [
 
 const tabCopy: Record<
   ActiveTab,
-  { eyebrow: string; title: string; description: string; phase: string; phaseBody: string }
+  { eyebrow: string; title: string; description: string }
 > = {
   Agents: {
     eyebrow: "Dashboard",
-    title: "Agent control plane",
+    title: "Configured agents",
     description:
       "Create AI bidding agents with campaign goals, budget ceilings, autonomy mode, target intents, and blocked categories.",
-    phase: "Phase 1",
-    phaseBody: "Configure bounded bidding agents before live inventory is connected.",
   },
   Simulation: {
     eyebrow: "Simulation",
     title: "Live bidding demo",
     description:
       "Nike and New Balance compete across three scripted scenarios: watch agents bid, block, and escalate in real time.",
-    phase: "Phase 2",
-    phaseBody: "Nike and New Balance compete across three live scenarios.",
   },
   Policies: {
     eyebrow: "Policies",
     title: "Bidding policies",
     description:
       "Rules each agent must satisfy before placing a bid, including budget, max CPC, relevance, blocked categories, and escalation gates.",
-    phase: "Phase 2",
-    phaseBody: "Every simulated bid is checked against campaign policy constraints.",
   },
   Analytics: {
     eyebrow: "Analytics",
     title: "Running Performance Campaign Analytics",
     description:
       "Compare Nike and New Balance spend, revenue, ROAS, pacing, and safety impact for the 4-minute kilometer demo.",
-    phase: "Phase 3",
-    phaseBody: "Seeded analytics are used until live campaign events are wired through.",
   },
 };
 
@@ -122,15 +114,6 @@ export default function Home() {
             })}
           </nav>
 
-          <div className="mt-6 rounded-md border border-line bg-panel p-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-              {copy.phase}
-            </p>
-            <p className="mt-2 text-sm font-medium text-ink">{copy.title}</p>
-            <p className="mt-1 text-xs leading-5 text-slate-500">
-              {copy.phaseBody}
-            </p>
-          </div>
         </aside>
 
         <section className="min-w-0 px-4 py-5 sm:px-6 lg:px-8">
