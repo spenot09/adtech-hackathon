@@ -7,15 +7,28 @@ const STORAGE_KEY = "agentbid-studio.agents";
 
 export const seededAgents: AgentConfig[] = [
   {
-    id: "seed-northstar-travel",
-    agentName: "Lisbon Weekend Buyer",
-    brandName: "Northstar Travel",
-    goal: "Win high-intent travel planning prompts for boutique hotel and flight packages.",
-    dailyBudget: 1250,
-    maxCpc: 4.75,
+    id: "seed-nike-alphafly-3",
+    agentName: "Nike Alphafly 3 Performance Buyer",
+    brandName: "Nike",
+    goal:
+      "Win high-intent running shoe and marathon-training prompts with sponsored answers for Nike Alphafly 3, while avoiding unsupported performance claims and unsafe health advice.",
+    dailyBudget: 6400,
+    maxCpc: 3.75,
     autonomyMode: "assisted",
-    targetIntents: ["travel-booking", "hotel-search", "flight-comparison"],
-    blockedCategories: ["medical", "debt-relief", "adult"],
+    targetIntents: [
+      "running-shoes",
+      "marathon-training",
+      "race-day-gear",
+      "shoe-comparison",
+      "performance-footwear",
+    ],
+    blockedCategories: [
+      "medical-advice",
+      "injury-treatment",
+      "unsupported-performance-claims",
+      "counterfeit-products",
+      "adult",
+    ],
     status: "paused",
     createdAt: new Date("2026-05-28T18:00:00.000Z").toISOString(),
   },

@@ -13,11 +13,13 @@ const initialValues: AgentFormValues = {
   agentName: "",
   brandName: "",
   goal: "",
-  dailyBudget: "1000",
-  maxCpc: "4.50",
+  dailyBudget: "6400",
+  maxCpc: "3.75",
   autonomyMode: "assisted",
-  targetIntents: "travel-booking, hotel-search",
-  blockedCategories: "medical, debt-relief, adult",
+  targetIntents:
+    "running-shoes, marathon-training, race-day-gear, shoe-comparison, performance-footwear",
+  blockedCategories:
+    "medical-advice, injury-treatment, unsupported-performance-claims, counterfeit-products, adult",
 };
 
 const autonomyOptions: Array<{
@@ -139,7 +141,7 @@ export function AgentForm({
               <input
                 className="field"
                 onChange={(event) => updateField("agentName", event.target.value)}
-                placeholder="Lisbon Weekend Buyer"
+                placeholder="Nike Alphafly 3 Performance Buyer"
                 value={values.agentName}
               />
             </Field>
@@ -148,7 +150,7 @@ export function AgentForm({
               <input
                 className="field"
                 onChange={(event) => updateField("brandName", event.target.value)}
-                placeholder="Northstar Travel"
+                placeholder="Nike"
                 value={values.brandName}
               />
             </Field>
@@ -157,7 +159,7 @@ export function AgentForm({
               <textarea
                 className="field min-h-[92px] resize-none"
                 onChange={(event) => updateField("goal", event.target.value)}
-                placeholder="Win high-intent travel planning prompts with safe sponsored answers."
+                placeholder="Win high-intent running shoe prompts with safe sponsored answers for Nike Alphafly 3."
                 value={values.goal}
               />
             </Field>
@@ -215,7 +217,7 @@ export function AgentForm({
               <input
                 className="field"
                 onChange={(event) => updateField("targetIntents", event.target.value)}
-                placeholder="travel-booking, hotel-search"
+                placeholder="running-shoes, marathon-training, race-day-gear"
                 value={values.targetIntents}
               />
             </Field>
@@ -224,7 +226,7 @@ export function AgentForm({
               <input
                 className="field"
                 onChange={(event) => updateField("blockedCategories", event.target.value)}
-                placeholder="medical, debt-relief, adult"
+                placeholder="medical-advice, unsupported-performance-claims, counterfeit-products"
                 value={values.blockedCategories}
               />
             </Field>
