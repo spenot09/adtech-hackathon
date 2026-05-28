@@ -89,3 +89,11 @@ Candidate order discussed so far:
 ## One-Line Pitch
 
 AgentBid Studio lets brands create bounded bidding agents for AI chat inventory, with spend caps, policy rules, live bidding decisions, generated ads, analytics, and human approval for risky placements.
+
+## Local Setup
+
+1. Copy the example env file: `cp .env.example .env.local`
+2. Fill in `OPENAI_API_KEY` (required for LLM-backed bid decisions)
+3. Fill in `OVERMIND_API_KEY` (optional — enables tracing at console.overmindlab.ai)
+4. Install dependencies and start the dev server: `npm install && npm run dev`
+5. Open [http://localhost:3000](http://localhost:3000)

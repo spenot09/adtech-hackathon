@@ -1,0 +1,704 @@
+[
+  {
+    "id": "case-001",
+    "input": {
+      "opportunity": {
+        "id": "opp-001",
+        "timestamp": 1716900000000,
+        "query": "Looking for comfortable running shoes for a first marathon — any recommendations?",
+        "intent": "running",
+        "category": "footwear",
+        "suggestedCpc": 3.8
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 50
+      }
+    },
+    "expected_output": { "decision": "bid", "bidAmount": 3.85, "reasonCategory": "safe_bid" }
+  },
+  {
+    "id": "case-002",
+    "input": {
+      "opportunity": {
+        "id": "opp-002",
+        "timestamp": 1716900060000,
+        "query": "What athletic shoes are best for long walks around the city?",
+        "intent": "fitness",
+        "category": "footwear",
+        "suggestedCpc": 3.2
+      },
+      "agentConfig": {
+        "id": "nb",
+        "name": "New Balance Bidder",
+        "brand": { "name": "New Balance", "color": "#CF3A2C", "voice": "Authentic, crafted, heritage", "designGuidelines": "Red/grey, heritage feel", "keywords": ["shoes","sneakers","street","casual","walking","style","comfort","everyday","fashion"] },
+        "goal": "Win street-style and casual footwear placements",
+        "dailyBudgetCap": 400,
+        "maxCpc": 4.00,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["shopping","fitness","running","general-question"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 30
+      }
+    },
+    "expected_output": { "decision": "bid", "bidAmount": 2.80, "reasonCategory": "safe_bid" }
+  },
+  {
+    "id": "case-003",
+    "input": {
+      "opportunity": {
+        "id": "opp-003",
+        "timestamp": 1716900120000,
+        "query": "I need new shoes to start running — what should I buy?",
+        "intent": "shopping",
+        "category": "footwear",
+        "suggestedCpc": 3.5
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "assisted",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 100
+      }
+    },
+    "expected_output": { "decision": "bid", "bidAmount": 2.64, "reasonCategory": "safe_bid" }
+  },
+  {
+    "id": "case-004",
+    "input": {
+      "opportunity": {
+        "id": "opp-004",
+        "timestamp": 1716900180000,
+        "query": "Best trail running shoes under $150 for beginners?",
+        "intent": "running",
+        "category": "footwear",
+        "suggestedCpc": 3.0
+      },
+      "agentConfig": {
+        "id": "nb",
+        "name": "New Balance Bidder",
+        "brand": { "name": "New Balance", "color": "#CF3A2C", "voice": "Authentic, crafted, heritage", "designGuidelines": "Red/grey, heritage feel", "keywords": ["shoes","sneakers","street","casual","walking","style","comfort","everyday","fashion"] },
+        "goal": "Win street-style and casual footwear placements",
+        "dailyBudgetCap": 400,
+        "maxCpc": 4.00,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["shopping","fitness","running","general-question"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 20
+      }
+    },
+    "expected_output": { "decision": "bid", "bidAmount": 2.56, "reasonCategory": "safe_bid" }
+  },
+  {
+    "id": "case-005",
+    "input": {
+      "opportunity": {
+        "id": "opp-005",
+        "timestamp": 1716900240000,
+        "query": "What are the best gifts for a fitness enthusiast?",
+        "intent": "shopping",
+        "category": "shopping",
+        "suggestedCpc": 2.2
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 80
+      }
+    },
+    "expected_output": { "decision": "bid", "bidAmount": 2.20, "reasonCategory": "safe_bid" }
+  },
+  {
+    "id": "case-006",
+    "input": {
+      "opportunity": {
+        "id": "opp-006",
+        "timestamp": 1716900300000,
+        "query": "Planning a summer vacation to the beach — where should I go and what should I pack?",
+        "intent": "travel-booking",
+        "category": "travel",
+        "suggestedCpc": 4.0
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 120
+      }
+    },
+    "expected_output": { "decision": "bid", "bidAmount": 2.20, "reasonCategory": "safe_bid" }
+  },
+  {
+    "id": "case-007",
+    "input": {
+      "opportunity": {
+        "id": "opp-007",
+        "timestamp": 1716900360000,
+        "query": "What's the best over-the-counter medication for a summer cold?",
+        "intent": "medical",
+        "category": "medical",
+        "suggestedCpc": 4.5
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 100
+      }
+    },
+    "expected_output": { "decision": "block", "bidAmount": null, "reasonCategory": "blocked_category" }
+  },
+  {
+    "id": "case-008",
+    "input": {
+      "opportunity": {
+        "id": "opp-008",
+        "timestamp": 1716900420000,
+        "query": "Best sports betting strategies for this weekend's games?",
+        "intent": "general-question",
+        "category": "gambling",
+        "suggestedCpc": 6.0
+      },
+      "agentConfig": {
+        "id": "nb",
+        "name": "New Balance Bidder",
+        "brand": { "name": "New Balance", "color": "#CF3A2C", "voice": "Authentic, crafted, heritage", "designGuidelines": "Red/grey, heritage feel", "keywords": ["shoes","sneakers","street","casual","walking","style","comfort","everyday","fashion"] },
+        "goal": "Win street-style and casual footwear placements",
+        "dailyBudgetCap": 400,
+        "maxCpc": 4.00,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["shopping","fitness","running","general-question"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 50
+      }
+    },
+    "expected_output": { "decision": "block", "bidAmount": null, "reasonCategory": "blocked_category" }
+  },
+  {
+    "id": "case-009",
+    "input": {
+      "opportunity": {
+        "id": "opp-009",
+        "timestamp": 1716900480000,
+        "query": "Top political news stories of the week?",
+        "intent": "general-question",
+        "category": "politics",
+        "suggestedCpc": 3.0
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 200
+      }
+    },
+    "expected_output": { "decision": "block", "bidAmount": null, "reasonCategory": "blocked_category" }
+  },
+  {
+    "id": "case-010",
+    "input": {
+      "opportunity": {
+        "id": "opp-010",
+        "timestamp": 1716900540000,
+        "query": "What medication helps with joint pain during exercise?",
+        "intent": "medical",
+        "category": "medical",
+        "suggestedCpc": 4.0
+      },
+      "agentConfig": {
+        "id": "nb",
+        "name": "New Balance Bidder",
+        "brand": { "name": "New Balance", "color": "#CF3A2C", "voice": "Authentic, crafted, heritage", "designGuidelines": "Red/grey, heritage feel", "keywords": ["shoes","sneakers","street","casual","walking","style","comfort","everyday","fashion"] },
+        "goal": "Win street-style and casual footwear placements",
+        "dailyBudgetCap": 400,
+        "maxCpc": 4.00,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["shopping","fitness","running","general-question"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 60
+      }
+    },
+    "expected_output": { "decision": "block", "bidAmount": null, "reasonCategory": "blocked_category" }
+  },
+  {
+    "id": "case-011",
+    "input": {
+      "opportunity": {
+        "id": "opp-011",
+        "timestamp": 1716900600000,
+        "query": "Online casino tips and tricks for new players?",
+        "intent": "general-question",
+        "category": "gambling",
+        "suggestedCpc": 5.0
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 150
+      }
+    },
+    "expected_output": { "decision": "block", "bidAmount": null, "reasonCategory": "blocked_category" }
+  },
+  {
+    "id": "case-012",
+    "input": {
+      "opportunity": {
+        "id": "opp-012",
+        "timestamp": 1716900660000,
+        "query": "Planning a summer vacation to the beach — where should I go and what should I pack?",
+        "intent": "travel-booking",
+        "category": "travel",
+        "suggestedCpc": 6.0
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 100
+      }
+    },
+    "expected_output": { "decision": "skip", "bidAmount": null, "reasonCategory": "over_max_cpc" }
+  },
+  {
+    "id": "case-013",
+    "input": {
+      "opportunity": {
+        "id": "opp-013",
+        "timestamp": 1716900720000,
+        "query": "What are the best luxury running shoes money can buy?",
+        "intent": "running",
+        "category": "footwear",
+        "suggestedCpc": 4.50
+      },
+      "agentConfig": {
+        "id": "nb",
+        "name": "New Balance Bidder",
+        "brand": { "name": "New Balance", "color": "#CF3A2C", "voice": "Authentic, crafted, heritage", "designGuidelines": "Red/grey, heritage feel", "keywords": ["shoes","sneakers","street","casual","walking","style","comfort","everyday","fashion"] },
+        "goal": "Win street-style and casual footwear placements",
+        "dailyBudgetCap": 400,
+        "maxCpc": 4.00,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["shopping","fitness","running","general-question"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 50
+      }
+    },
+    "expected_output": { "decision": "skip", "bidAmount": null, "reasonCategory": "over_max_cpc" }
+  },
+  {
+    "id": "case-014",
+    "input": {
+      "opportunity": {
+        "id": "opp-014",
+        "timestamp": 1716900780000,
+        "query": "Should I invest in index funds or ETFs for my retirement account?",
+        "intent": "finance-advice",
+        "category": "finance",
+        "suggestedCpc": 5.50
+      },
+      "agentConfig": {
+        "id": "nb",
+        "name": "New Balance Bidder",
+        "brand": { "name": "New Balance", "color": "#CF3A2C", "voice": "Authentic, crafted, heritage", "designGuidelines": "Red/grey, heritage feel", "keywords": ["shoes","sneakers","street","casual","walking","style","comfort","everyday","fashion"] },
+        "goal": "Win street-style and casual footwear placements",
+        "dailyBudgetCap": 400,
+        "maxCpc": 4.00,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["shopping","fitness","running","general-question"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 100
+      }
+    },
+    "expected_output": { "decision": "skip", "bidAmount": null, "reasonCategory": "over_max_cpc" }
+  },
+  {
+    "id": "case-015",
+    "input": {
+      "opportunity": {
+        "id": "opp-015",
+        "timestamp": 1716900840000,
+        "query": "Premium fitness tracker recommendations for serious athletes?",
+        "intent": "fitness",
+        "category": "electronics",
+        "suggestedCpc": 5.80
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 200
+      }
+    },
+    "expected_output": { "decision": "skip", "bidAmount": null, "reasonCategory": "over_max_cpc" }
+  },
+  {
+    "id": "case-016",
+    "input": {
+      "opportunity": {
+        "id": "opp-016",
+        "timestamp": 1716900900000,
+        "query": "Looking for comfortable running shoes for a first marathon — any recommendations?",
+        "intent": "running",
+        "category": "footwear",
+        "suggestedCpc": 3.8
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 590
+      }
+    },
+    "expected_output": { "decision": "skip", "bidAmount": null, "reasonCategory": "over_budget" }
+  },
+  {
+    "id": "case-017",
+    "input": {
+      "opportunity": {
+        "id": "opp-017",
+        "timestamp": 1716900960000,
+        "query": "Best athletic shoes for gym training?",
+        "intent": "fitness",
+        "category": "footwear",
+        "suggestedCpc": 3.5
+      },
+      "agentConfig": {
+        "id": "nb",
+        "name": "New Balance Bidder",
+        "brand": { "name": "New Balance", "color": "#CF3A2C", "voice": "Authentic, crafted, heritage", "designGuidelines": "Red/grey, heritage feel", "keywords": ["shoes","sneakers","street","casual","walking","style","comfort","everyday","fashion"] },
+        "goal": "Win street-style and casual footwear placements",
+        "dailyBudgetCap": 400,
+        "maxCpc": 4.00,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["shopping","fitness","running","general-question"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 398
+      }
+    },
+    "expected_output": { "decision": "skip", "bidAmount": null, "reasonCategory": "over_budget" }
+  },
+  {
+    "id": "case-018",
+    "input": {
+      "opportunity": {
+        "id": "opp-018",
+        "timestamp": 1716901020000,
+        "query": "What trail running shoes should I buy for my first 5K?",
+        "intent": "running",
+        "category": "footwear",
+        "suggestedCpc": 4.0
+      },
+      "agentConfig": {
+        "id": "nb",
+        "name": "New Balance Bidder",
+        "brand": { "name": "New Balance", "color": "#CF3A2C", "voice": "Authentic, crafted, heritage", "designGuidelines": "Red/grey, heritage feel", "keywords": ["shoes","sneakers","street","casual","walking","style","comfort","everyday","fashion"] },
+        "goal": "Win street-style and casual footwear placements",
+        "dailyBudgetCap": 400,
+        "maxCpc": 4.00,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["shopping","fitness","running","general-question"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 397
+      }
+    },
+    "expected_output": { "decision": "skip", "bidAmount": null, "reasonCategory": "over_budget" }
+  },
+  {
+    "id": "case-019",
+    "input": {
+      "opportunity": {
+        "id": "opp-019",
+        "timestamp": 1716901080000,
+        "query": "Can you help me write a cover letter for a software engineering job?",
+        "intent": "general-question",
+        "category": "general",
+        "suggestedCpc": 1.5
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 100
+      }
+    },
+    "expected_output": { "decision": "skip", "bidAmount": null, "reasonCategory": "low_relevance" }
+  },
+  {
+    "id": "case-020",
+    "input": {
+      "opportunity": {
+        "id": "opp-020",
+        "timestamp": 1716901140000,
+        "query": "How do I negotiate a raise at work?",
+        "intent": "general-question",
+        "category": "general",
+        "suggestedCpc": 2.0
+      },
+      "agentConfig": {
+        "id": "nb",
+        "name": "New Balance Bidder",
+        "brand": { "name": "New Balance", "color": "#CF3A2C", "voice": "Authentic, crafted, heritage", "designGuidelines": "Red/grey, heritage feel", "keywords": ["shoes","sneakers","street","casual","walking","style","comfort","everyday","fashion"] },
+        "goal": "Win street-style and casual footwear placements",
+        "dailyBudgetCap": 400,
+        "maxCpc": 4.00,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["shopping","fitness","running","general-question"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 80
+      }
+    },
+    "expected_output": { "decision": "skip", "bidAmount": null, "reasonCategory": "low_relevance" }
+  },
+  {
+    "id": "case-021",
+    "input": {
+      "opportunity": {
+        "id": "opp-021",
+        "timestamp": 1716901200000,
+        "query": "What's the best programming language to learn first?",
+        "intent": "general-question",
+        "category": "general",
+        "suggestedCpc": 1.8
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "autonomous",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 150
+      }
+    },
+    "expected_output": { "decision": "skip", "bidAmount": null, "reasonCategory": "low_relevance" }
+  },
+  {
+    "id": "case-022",
+    "input": {
+      "opportunity": {
+        "id": "opp-022",
+        "timestamp": 1716901260000,
+        "query": "What athletic shoes are best for long walks around the city?",
+        "intent": "fitness",
+        "category": "footwear",
+        "suggestedCpc": 3.2
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "manual",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 100
+      }
+    },
+    "expected_output": { "decision": "review", "bidAmount": null, "reasonCategory": "manual_mode" }
+  },
+  {
+    "id": "case-023",
+    "input": {
+      "opportunity": {
+        "id": "opp-023",
+        "timestamp": 1716901320000,
+        "query": "Best trail running shoes under $150 for beginners?",
+        "intent": "running",
+        "category": "footwear",
+        "suggestedCpc": 3.0
+      },
+      "agentConfig": {
+        "id": "nb",
+        "name": "New Balance Bidder",
+        "brand": { "name": "New Balance", "color": "#CF3A2C", "voice": "Authentic, crafted, heritage", "designGuidelines": "Red/grey, heritage feel", "keywords": ["shoes","sneakers","street","casual","walking","style","comfort","everyday","fashion"] },
+        "goal": "Win street-style and casual footwear placements",
+        "dailyBudgetCap": 400,
+        "maxCpc": 4.00,
+        "autonomyMode": "manual",
+        "targetIntents": ["shopping","fitness","running","general-question"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 50
+      }
+    },
+    "expected_output": { "decision": "review", "bidAmount": null, "reasonCategory": "manual_mode" }
+  },
+  {
+    "id": "case-024",
+    "input": {
+      "opportunity": {
+        "id": "opp-024",
+        "timestamp": 1716901380000,
+        "query": "Looking for comfortable running shoes for a first marathon — any recommendations?",
+        "intent": "running",
+        "category": "footwear",
+        "suggestedCpc": 5.0
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 5.50,
+        "autonomyMode": "assisted",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 100
+      }
+    },
+    "expected_output": { "decision": "review", "bidAmount": null, "reasonCategory": "high_value_escalation" }
+  },
+  {
+    "id": "case-025",
+    "input": {
+      "opportunity": {
+        "id": "opp-025",
+        "timestamp": 1716901440000,
+        "query": "Best trail running shoes under $150 for beginners?",
+        "intent": "running",
+        "category": "footwear",
+        "suggestedCpc": 3.70
+      },
+      "agentConfig": {
+        "id": "nb",
+        "name": "New Balance Bidder",
+        "brand": { "name": "New Balance", "color": "#CF3A2C", "voice": "Authentic, crafted, heritage", "designGuidelines": "Red/grey, heritage feel", "keywords": ["shoes","sneakers","street","casual","walking","style","comfort","everyday","fashion"] },
+        "goal": "Win street-style and casual footwear placements",
+        "dailyBudgetCap": 400,
+        "maxCpc": 4.00,
+        "autonomyMode": "assisted",
+        "targetIntents": ["shopping","fitness","running","general-question"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 80
+      }
+    },
+    "expected_output": { "decision": "review", "bidAmount": null, "reasonCategory": "high_value_escalation" }
+  },
+  {
+    "id": "case-026",
+    "input": {
+      "opportunity": {
+        "id": "opp-026",
+        "timestamp": 1716901500000,
+        "query": "What athletic shoes are best for long walks around the city?",
+        "intent": "fitness",
+        "category": "footwear",
+        "suggestedCpc": 3.65
+      },
+      "agentConfig": {
+        "id": "nike",
+        "name": "Nike Performance Bidder",
+        "brand": { "name": "Nike", "color": "#111111", "voice": "Bold, athletic, motivational", "designGuidelines": "Black/white, clean sans", "keywords": ["run","athletic","sport","performance","marathon","training","workout","gym","race","sprint"] },
+        "goal": "Win athletic and running-focused placements",
+        "dailyBudgetCap": 600,
+        "maxCpc": 4.00,
+        "autonomyMode": "assisted",
+        "targetIntents": ["fitness","running","shopping","travel-booking"],
+        "blockedCategories": ["medical","gambling","politics"],
+        "status": "active",
+        "spend": 120
+      }
+    },
+    "expected_output": { "decision": "review", "bidAmount": null, "reasonCategory": "high_value_escalation" }
+  }
+]

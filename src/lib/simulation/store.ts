@@ -12,6 +12,7 @@ export type SimulationEvent = {
 type SimulationStore = {
   agents: Agent[];
   events: SimulationEvent[];
+  promptVariant: "baseline" | "optimized";
   listeners: Set<() => void>;
   subscribe: (fn: () => void) => () => void;
   emit: () => void;
@@ -23,7 +24,8 @@ type SimulationStore = {
     decisionsByAgent: Record<string, Decision>
   ) => void;
   setAgentStatus: (status: "paused" | "active" | "stopped") => void;
-  getSnapshot: () => { agents: Agent[]; events: SimulationEvent[] };
+  setPromptVariant: (v: "baseline" | "optimized") => void;
+  getSnapshot: () => { agents: Agent[]; events: SimulationEvent[]; promptVariant: "baseline" | "optimized" };
 };
 
 const MAX_EVENTS = 50;
@@ -32,6 +34,7 @@ function createStore(): SimulationStore {
   const store: SimulationStore = {
     agents: cloneFixtureAgents(),
     events: [],
+    promptVariant: "optimized",
     listeners: new Set(),
 
     subscribe(fn) {
@@ -79,8 +82,13 @@ function createStore(): SimulationStore {
       store.agents = store.agents.map((a) => ({ ...a, status }));
     },
 
+    setPromptVariant(v) {
+      store.promptVariant = v;
+      store.emit();
+    },
+
     getSnapshot() {
-      return { agents: store.agents, events: store.events };
+      return { agents: store.agents, events: store.events, promptVariant: store.promptVariant };
     },
   };
 
@@ -98,7 +106,7 @@ function getSnapshot() {
 }
 
 function getServerSnapshot() {
-  return { agents: [] as Agent[], events: [] as SimulationEvent[] };
+  return { agents: [] as Agent[], events: [] as SimulationEvent[], promptVariant: "optimized" as const };
 }
 
 export function useSimulation() {
@@ -116,8 +124,10 @@ export function useSimulation() {
   return {
     agents: data.agents,
     events: data.events,
+    promptVariant: data.promptVariant,
     start: simulationStore.start.bind(simulationStore),
     stop: simulationStore.stop.bind(simulationStore),
     reset: simulationStore.reset.bind(simulationStore),
+    setPromptVariant: simulationStore.setPromptVariant.bind(simulationStore),
   };
 }

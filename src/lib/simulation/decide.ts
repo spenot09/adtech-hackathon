@@ -1,4 +1,5 @@
 import type { Agent, Opportunity, RelevanceScore, Decision } from "@/lib/types/agent";
+import { runPolicyChecks } from "@/lib/simulation/policies";
 
 /**
  * Rule-based decision logic. Evaluates in priority order and returns the first matching action.
@@ -9,10 +10,12 @@ export function decide(
   opp: Opportunity,
   relevance: RelevanceScore
 ): Decision {
+  const policyChecks = runPolicyChecks(agent, opp, relevance.score);
   const base = {
     agentId: agent.id,
     opportunityId: opp.id,
     relevance,
+    policyChecks,
   };
 
   // Rule 1: Blocked category
