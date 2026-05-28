@@ -49,7 +49,7 @@ progress:
 
 ### Todos
 
-(None yet)
+- Demo running shoe bidding scenario: include Adidas/New Balance/Nike bidding on "How can I get closer to my goal of a 4 minute kilometer?", with Nike winning and New Balance avoiding unsupported time-performance claims. See `.planning/todos/pending/2026-05-28-demo-running-shoe-bidding-scenario.md`.
 
 ### Blockers
 
