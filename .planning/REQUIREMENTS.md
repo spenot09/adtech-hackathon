@@ -54,6 +54,14 @@
 
 - [ ] **DEMO-01**: End-to-end demo flow works: create travel-brand agent → configure → start simulation → see safe bids won, unsafe skipped, one risky bid escalated → see analytics update live
 
+### Agent Optimization (Overmind)
+
+- [ ] **OPT-01**: Overmind tracing SDK is initialized at app bootstrap; every bid-decision LLM call emits a trace (inputs, outputs, latency, tokens, cost) visible in the Overmind console
+- [ ] **OPT-02**: The bid-decision agent is registered in `.overmind/agents.toml` with a single, replayable entrypoint that takes an opportunity + agent config and returns `{decision, bidAmount, reason}`
+- [ ] **OPT-03**: A policy document and eval spec encode the bid rules (blocked categories, max CPC, autonomy modes, target intents, escalation) and are kept in agreement with the registered agent
+- [ ] **OPT-04**: A dataset of 20–30 hand-crafted opportunities (safe / unsafe / ambiguous / high-value) lives under the agent's `data/` dir with `input` and `expected_output` per case
+- [ ] **OPT-05**: `/overmind-optimize-agent` produces an accepted candidate that beats baseline on the eval; the optimized prompt is committed and a before/after score is recorded
+
 ## v2 Requirements (deferred)
 
 - Card-style rich ad preview alongside the plain-text response
@@ -101,3 +109,8 @@
 | HUMAN-02 | Phase 4 |
 | HUMAN-03 | Phase 4 |
 | DEMO-01 | Phase 4 |
+| OPT-01 | Phase 5 |
+| OPT-02 | Phase 5 |
+| OPT-03 | Phase 5 |
+| OPT-04 | Phase 5 |
+| OPT-05 | Phase 5 |

@@ -91,7 +91,12 @@ End-to-end demo flow (DEMO-01): create a travel-brand agent → configure → st
 - **Skills sequence** (run inside Claude Code): `/overmind-register-agent` → `/overmind-generate-spec-and-dataset` (seed with our hand-crafted JSON cases under `data/`) → `/overmind-optimize-agent`.
 - **Demo angle:** keep the pre-optimization prompt around so the demo can flip a toggle ("baseline" vs "Overmind-optimized") and show the score delta on a small comparison card.
 
-**Plans:** TBD
+**Plans:** 4 plans
+Plans:
+- [ ] 05-01-isolate-bid-decision-entrypoint-PLAN.md — Refactor bid decision into a single async `decideBid(opportunity, agentConfig)` entrypoint with LLM call + post-LLM safety guardrails (OPT-02)
+- [ ] 05-02-overmind-tracing-bootstrap-PLAN.md — Install `@overmind-lab/trace-sdk` and initialize tracing at Next.js bootstrap via instrumentation.ts (OPT-01)
+- [ ] 05-03-register-agent-policy-and-dataset-PLAN.md — Register agent in `.overmind/agents.toml`, author policy.md + eval-spec.md, hand-craft 20–30-case dataset (OPT-03, OPT-04)
+- [ ] 05-04-optimize-and-ship-demo-toggle-PLAN.md — Run `/overmind-optimize-agent`, commit optimizedPrompt, wire baseline/optimized toggle into demo UI with comparison card (OPT-05)
 **UI hint:** light (a single comparison card / status badge — most of the work is backend + offline optimization)
 
 ## Progress
