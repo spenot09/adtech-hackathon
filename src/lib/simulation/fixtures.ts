@@ -19,7 +19,7 @@ export const FIXTURE_AGENTS: Agent[] = [
     maxCpc: 5.50,
     autonomyMode: "autonomous",
     targetIntents: ["fitness", "running", "shopping", "travel-booking"],
-    blockedCategories: ["medical", "gambling", "politics"],
+    blockedCategories: ["medical-advice", "counterfeit-products"],
     status: "paused",
     spend: 0,
     policies: [
@@ -27,7 +27,7 @@ export const FIXTURE_AGENTS: Agent[] = [
         id: "blocked_category",
         name: "Blocked categories",
         description: "Never bid on ad slots in these content categories.",
-        displayValue: "medical, gambling, politics",
+        displayValue: "medical-advice, counterfeit-products",
       },
       {
         id: "max_cpc_per_ad",
@@ -73,7 +73,7 @@ export const FIXTURE_AGENTS: Agent[] = [
     maxCpc: 4.00,
     autonomyMode: "autonomous",
     targetIntents: ["shopping", "fitness", "running", "general-question"],
-    blockedCategories: ["medical", "gambling", "politics"],
+    blockedCategories: ["medical-advice", "counterfeit-products"],
     status: "paused",
     spend: 0,
     policies: [
@@ -81,7 +81,7 @@ export const FIXTURE_AGENTS: Agent[] = [
         id: "blocked_category",
         name: "Blocked categories",
         description: "Never bid on ad slots in these content categories.",
-        displayValue: "medical, gambling, politics",
+        displayValue: "medical-advice, counterfeit-products",
       },
       {
         id: "max_cpc_per_ad",
