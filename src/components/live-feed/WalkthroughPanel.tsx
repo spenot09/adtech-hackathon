@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { CheckCircle2, XCircle } from "lucide-react";
 import { DEMO_SCENARIOS } from "@/lib/simulation/demo-scenarios";
 import { FIXTURE_AGENTS } from "@/lib/simulation/fixtures";
 import { PREGENERATED_ADS } from "@/lib/simulation/pregenerated-ads";
+import { runPolicyChecks } from "@/lib/simulation/policies";
 import AdCard from "@/components/live-feed/AdCard";
-import type { GeneratedAd } from "@/lib/types/agent";
+import type { GeneratedAd, PolicyCheck } from "@/lib/types/agent";
 
 const intentColors: Record<string, string> = {
   thirst: "bg-blue-900/60 text-blue-300 border-blue-700",
@@ -27,6 +29,29 @@ const actionConfig = {
   block: { label: "BLOCK", class: "bg-red-700 text-white" },
   review: { label: "REVIEW", class: "bg-amber-600 text-white" },
 };
+
+function PolicyChecklist({ checks }: { checks: PolicyCheck[] }) {
+  return (
+    <div className="mt-2 rounded-md border border-gray-700 bg-gray-800/60 p-2 space-y-1">
+      <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5">
+        Policy checks
+      </p>
+      {checks.map((check) => (
+        <div key={check.ruleId} className="flex items-start gap-1.5">
+          {check.passed ? (
+            <CheckCircle2 size={12} className="text-green-400 flex-shrink-0 mt-0.5" />
+          ) : (
+            <XCircle size={12} className="text-red-400 flex-shrink-0 mt-0.5" />
+          )}
+          <div className="min-w-0">
+            <span className="text-[11px] font-medium text-gray-300">{check.ruleName}</span>
+            <span className="text-[11px] text-gray-500"> — {check.detail}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function WalkthroughPanel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -169,6 +194,11 @@ export default function WalkthroughPanel() {
             const actionCfg = actionConfig[decision.action];
             const isWinner = winner === agentId;
 
+            // Compute policy checks dynamically from fixture agent + opportunity
+            const policyChecks = agent
+              ? runPolicyChecks(agent, scenario.opportunity, decision.relevance.score)
+              : [];
+
             return (
               <div
                 key={agentId}
@@ -236,6 +266,9 @@ export default function WalkthroughPanel() {
                 <p className="text-xs text-gray-400 leading-snug">
                   {decision.reason}
                 </p>
+
+                {/* Policy checks */}
+                <PolicyChecklist checks={policyChecks} />
 
                 {/* Legacy ad card if decision.ad exists (template/fallback) */}
                 {decision.ad && agent && !isWinner && (

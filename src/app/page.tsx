@@ -8,19 +8,20 @@ import {
   LayoutDashboard,
   Plus,
   RadioTower,
-  Shield,
+  ShieldCheck,
 } from "lucide-react";
 import { AgentDashboard } from "@/components/AgentDashboard";
 import { AgentForm } from "@/components/AgentForm";
+import { PoliciesPanel } from "@/components/PoliciesPanel";
 import { useAgentStore } from "@/lib/agentStore";
 import WalkthroughPanel from "@/components/live-feed/WalkthroughPanel";
 
-type Tab = "Agents" | "Simulation" | "Safety" | "Analytics";
+type Tab = "Agents" | "Simulation" | "Policies" | "Analytics";
 
 const navItems: { label: Tab; icon: React.ElementType }[] = [
   { label: "Agents", icon: Bot },
   { label: "Simulation", icon: RadioTower },
-  { label: "Safety", icon: Shield },
+  { label: "Policies", icon: ShieldCheck },
   { label: "Analytics", icon: Gauge },
 ];
 
@@ -136,9 +137,13 @@ export default function Home() {
             </>
           )}
 
-          {(activeTab === "Safety" || activeTab === "Analytics") && (
+          {activeTab === "Policies" && (
+            <PoliciesPanel />
+          )}
+
+          {activeTab === "Analytics" && (
             <div className="flex h-full min-h-[60vh] flex-col items-center justify-center gap-3 text-center">
-              <p className="text-sm font-medium text-ink">{activeTab}</p>
+              <p className="text-sm font-medium text-ink">Analytics</p>
               <p className="text-sm text-slate-500">Coming in a future phase.</p>
             </div>
           )}
