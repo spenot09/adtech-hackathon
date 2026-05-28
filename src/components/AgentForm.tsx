@@ -1,9 +1,13 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { Plus, X } from "lucide-react";
+import { FormEvent, useEffect, useState } from "react";
+import { Check, Plus, X } from "lucide-react";
 import type { AgentConfig, AgentFormValues, AutonomyMode } from "@/lib/types";
-import { createAgentFromForm } from "@/lib/agentStore";
+import {
+  agentToFormValues,
+  createAgentFromForm,
+  updateAgentFromForm,
+} from "@/lib/agentStore";
 
 const initialValues: AgentFormValues = {
   agentName: "",
@@ -39,14 +43,32 @@ const autonomyOptions: Array<{
 ];
 
 type AgentFormProps = {
+  agent?: AgentConfig | null;
   open: boolean;
   onClose: () => void;
   onCreate: (agent: AgentConfig) => void;
+  onUpdate: (agent: AgentConfig) => void;
 };
 
-export function AgentForm({ open, onClose, onCreate }: AgentFormProps) {
+export function AgentForm({
+  agent,
+  open,
+  onClose,
+  onCreate,
+  onUpdate,
+}: AgentFormProps) {
   const [values, setValues] = useState<AgentFormValues>(initialValues);
   const [error, setError] = useState("");
+  const isEditing = Boolean(agent);
+
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    setValues(agent ? agentToFormValues(agent) : initialValues);
+    setError("");
+  }, [agent, open]);
 
   if (!open) {
     return null;
@@ -72,7 +94,12 @@ export function AgentForm({ open, onClose, onCreate }: AgentFormProps) {
       return;
     }
 
-    onCreate(createAgentFromForm(values));
+    if (agent) {
+      onUpdate(updateAgentFromForm(agent, values));
+    } else {
+      onCreate(createAgentFromForm(values));
+    }
+
     setValues(initialValues);
     setError("");
     onClose();
@@ -90,9 +117,11 @@ export function AgentForm({ open, onClose, onCreate }: AgentFormProps) {
         <div className="flex items-start justify-between border-b border-line px-6 py-5">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-signal">
-              New bidding agent
+              {isEditing ? "Edit bidding agent" : "New bidding agent"}
             </p>
-            <h2 className="mt-2 text-xl font-semibold text-ink">Create campaign guardrails</h2>
+            <h2 className="mt-2 text-xl font-semibold text-ink">
+              {isEditing ? "Update campaign guardrails" : "Create campaign guardrails"}
+            </h2>
           </div>
           <button
             aria-label="Close"
@@ -219,8 +248,8 @@ export function AgentForm({ open, onClose, onCreate }: AgentFormProps) {
               className="inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
               type="submit"
             >
-              <Plus size={16} />
-              Create agent
+              {isEditing ? <Check size={16} /> : <Plus size={16} />}
+              {isEditing ? "Save changes" : "Create agent"}
             </button>
           </div>
         </form>

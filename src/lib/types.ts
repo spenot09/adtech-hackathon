@@ -26,3 +26,38 @@ export type AgentFormValues = {
   targetIntents: string;
   blockedCategories: string;
 };
+
+export type AnalyticsSeriesPoint = {
+  date: string;
+  spend: number;
+  revenue: number;
+};
+
+export type AnalyticsCampaign = {
+  id: string;
+  brand: "Adidas" | "New Balance";
+  campaignName: string;
+  accent: "charcoal" | "red";
+  budgetCap: number;
+  spend: number;
+  revenue: number;
+  impressions: number;
+  clicks: number;
+  conversions: number;
+  bidsWon: number;
+  averageCpc: number;
+  maxCpcGuardrail: number;
+  skippedUnsafePrompts: number;
+  blockedCategoriesCount: number;
+  unsupportedClaimsPrevented: number;
+  unsafeSpendAvoided: number;
+  series: AnalyticsSeriesPoint[];
+};
+
+export type RevenueSegment = {
+  segment: string;
+  leadingCampaign: string;
+  clicks: number;
+  spend: number;
+  revenue: number;
+};

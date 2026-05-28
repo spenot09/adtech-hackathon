@@ -15,6 +15,7 @@
 html,
 body {
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -38,4 +39,14 @@ input:focus-visible,
 textarea:focus-visible {
   outline: 2px solid #0f766e;
   outline-offset: 2px;
+}
+
+@layer components {
+  .table-head {
+    @apply whitespace-nowrap px-4 py-3 text-xs font-semibold uppercase text-slate-500;
+  }
+
+  .table-cell {
+    @apply whitespace-nowrap px-4 py-3 text-slate-600;
+  }
 }

@@ -65,6 +65,36 @@ export function createAgentFromForm(values: AgentFormValues): AgentConfig {
   };
 }
 
+export function agentToFormValues(agent: AgentConfig): AgentFormValues {
+  return {
+    agentName: agent.agentName,
+    brandName: agent.brandName,
+    goal: agent.goal,
+    dailyBudget: String(agent.dailyBudget),
+    maxCpc: String(agent.maxCpc),
+    autonomyMode: agent.autonomyMode,
+    targetIntents: agent.targetIntents.join(", "),
+    blockedCategories: agent.blockedCategories.join(", "),
+  };
+}
+
+export function updateAgentFromForm(
+  agent: AgentConfig,
+  values: AgentFormValues,
+): AgentConfig {
+  return {
+    ...agent,
+    agentName: values.agentName.trim(),
+    brandName: values.brandName.trim(),
+    goal: values.goal.trim(),
+    dailyBudget: Number(values.dailyBudget),
+    maxCpc: Number(values.maxCpc),
+    autonomyMode: values.autonomyMode,
+    targetIntents: parseTokens(values.targetIntents),
+    blockedCategories: parseTokens(values.blockedCategories),
+  };
+}
+
 export function useAgentStore() {
   const [agents, setAgents] = useState<AgentConfig[]>(seededAgents);
   const [loaded, setLoaded] = useState(false);
@@ -87,6 +117,13 @@ export function useAgentStore() {
       agents,
       addAgent: (agent: AgentConfig) => {
         setAgents((current) => [agent, ...current]);
+      },
+      updateAgent: (updatedAgent: AgentConfig) => {
+        setAgents((current) =>
+          current.map((agent) =>
+            agent.id === updatedAgent.id ? updatedAgent : agent,
+          ),
+        );
       },
       totalBudget: agents.reduce((sum, agent) => sum + agent.dailyBudget, 0),
       averageMaxCpc:
