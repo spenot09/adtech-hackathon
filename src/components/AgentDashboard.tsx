@@ -1,10 +1,11 @@
-import { Bot, CheckCircle2, CircleDollarSign, ShieldCheck } from "lucide-react";
+import { Bot, CheckCircle2, CircleDollarSign, Pencil, ShieldCheck } from "lucide-react";
 import type { AgentConfig, AgentStatus, AutonomyMode } from "@/lib/types";
 
 type AgentDashboardProps = {
   agents: AgentConfig[];
   totalBudget: number;
   averageMaxCpc: number;
+  onEditAgent: (agent: AgentConfig) => void;
 };
 
 const statusLabels: Record<AgentStatus, string> = {
@@ -23,6 +24,7 @@ export function AgentDashboard({
   agents,
   totalBudget,
   averageMaxCpc,
+  onEditAgent,
 }: AgentDashboardProps) {
   return (
     <div className="grid gap-5">
@@ -85,6 +87,14 @@ export function AgentDashboard({
                   <p className="mt-2 text-sm leading-6 text-slate-500">
                     {agent.goal}
                   </p>
+                  <button
+                    className="mt-3 inline-flex items-center gap-1.5 rounded-md border border-line bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-panel hover:text-ink"
+                    onClick={() => onEditAgent(agent)}
+                    type="button"
+                  >
+                    <Pencil size={13} />
+                    Edit
+                  </button>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 text-sm">

@@ -7,3 +7,4 @@ dist
 *.tsbuildinfo
 .env*.local
 .next-dev*.log
+.next-start*.log

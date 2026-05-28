@@ -7,15 +7,28 @@ const STORAGE_KEY = "agentbid-studio.agents";
 
 export const seededAgents: AgentConfig[] = [
   {
-    id: "seed-northstar-travel",
-    agentName: "Lisbon Weekend Buyer",
-    brandName: "Northstar Travel",
-    goal: "Win high-intent travel planning prompts for boutique hotel and flight packages.",
-    dailyBudget: 1250,
-    maxCpc: 4.75,
+    id: "seed-nike-alphafly-3",
+    agentName: "Nike Alphafly 3 Performance Buyer",
+    brandName: "Nike",
+    goal:
+      "Win high-intent running shoe and marathon-training prompts with sponsored answers for Nike Alphafly 3, while avoiding unsupported performance claims and unsafe health advice.",
+    dailyBudget: 6400,
+    maxCpc: 3.75,
     autonomyMode: "assisted",
-    targetIntents: ["travel-booking", "hotel-search", "flight-comparison"],
-    blockedCategories: ["medical", "debt-relief", "adult"],
+    targetIntents: [
+      "running-shoes",
+      "marathon-training",
+      "race-day-gear",
+      "shoe-comparison",
+      "performance-footwear",
+    ],
+    blockedCategories: [
+      "medical-advice",
+      "injury-treatment",
+      "unsupported-performance-claims",
+      "counterfeit-products",
+      "adult",
+    ],
     status: "paused",
     createdAt: new Date("2026-05-28T18:00:00.000Z").toISOString(),
   },
@@ -65,6 +78,36 @@ export function createAgentFromForm(values: AgentFormValues): AgentConfig {
   };
 }
 
+export function agentToFormValues(agent: AgentConfig): AgentFormValues {
+  return {
+    agentName: agent.agentName,
+    brandName: agent.brandName,
+    goal: agent.goal,
+    dailyBudget: String(agent.dailyBudget),
+    maxCpc: String(agent.maxCpc),
+    autonomyMode: agent.autonomyMode,
+    targetIntents: agent.targetIntents.join(", "),
+    blockedCategories: agent.blockedCategories.join(", "),
+  };
+}
+
+export function updateAgentFromForm(
+  agent: AgentConfig,
+  values: AgentFormValues,
+): AgentConfig {
+  return {
+    ...agent,
+    agentName: values.agentName.trim(),
+    brandName: values.brandName.trim(),
+    goal: values.goal.trim(),
+    dailyBudget: Number(values.dailyBudget),
+    maxCpc: Number(values.maxCpc),
+    autonomyMode: values.autonomyMode,
+    targetIntents: parseTokens(values.targetIntents),
+    blockedCategories: parseTokens(values.blockedCategories),
+  };
+}
+
 export function useAgentStore() {
   const [agents, setAgents] = useState<AgentConfig[]>(seededAgents);
   const [loaded, setLoaded] = useState(false);
@@ -87,6 +130,13 @@ export function useAgentStore() {
       agents,
       addAgent: (agent: AgentConfig) => {
         setAgents((current) => [agent, ...current]);
+      },
+      updateAgent: (updatedAgent: AgentConfig) => {
+        setAgents((current) =>
+          current.map((agent) =>
+            agent.id === updatedAgent.id ? updatedAgent : agent,
+          ),
+        );
       },
       totalBudget: agents.reduce((sum, agent) => sum + agent.dailyBudget, 0),
       averageMaxCpc:
