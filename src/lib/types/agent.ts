@@ -35,6 +35,7 @@ export type Agent = {
   blockedCategories: string[];
   status: "paused" | "active" | "stopped";
   spend: number;
+  policies: PolicyRule[];
 };
 
 export type Opportunity = {
@@ -75,6 +76,20 @@ export type GeneratedAd = {
   source: "generated";
 };
 
+export type PolicyRule = {
+  id: string;
+  name: string;
+  description: string;
+  displayValue: string;
+};
+
+export type PolicyCheck = {
+  ruleId: string;
+  ruleName: string;
+  passed: boolean;
+  detail: string;
+};
+
 export type Decision = {
   agentId: string;
   opportunityId: string;
@@ -84,4 +99,5 @@ export type Decision = {
   relevance: RelevanceScore;
   won?: boolean;
   ad?: Ad;
+  policyChecks?: PolicyCheck[];
 };
