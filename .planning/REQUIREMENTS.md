@@ -73,4 +73,31 @@
 
 | Requirement | Phase |
 |-------------|-------|
-| (Populated by ROADMAP creation) | — |
+| AGENT-01 | Phase 1 |
+| AGENT-02 | Phase 1 |
+| AGENT-03 | Phase 1 |
+| AGENT-04 | Phase 1 |
+| AGENT-05 | Phase 1 |
+| DASH-01 | Phase 1 |
+| BID-01 | Phase 2 |
+| BID-02 | Phase 2 |
+| BID-03 | Phase 2 |
+| BID-04 | Phase 2 |
+| BID-05 | Phase 2 |
+| AD-01 | Phase 2 |
+| AD-02 | Phase 2 |
+| DASH-02 | Phase 2 |
+| METRICS-01 | Phase 3 |
+| METRICS-02 | Phase 3 |
+| METRICS-03 | Phase 3 |
+| METRICS-04 | Phase 3 |
+| METRICS-05 | Phase 3 |
+| SAFETY-01 | Phase 3 |
+| SAFETY-02 | Phase 3 |
+| SAFETY-03 | Phase 3 |
+| DASH-03 | Phase 3 |
+| SAFETY-04 | Phase 4 |
+| HUMAN-01 | Phase 4 |
+| HUMAN-02 | Phase 4 |
+| HUMAN-03 | Phase 4 |
+| DEMO-01 | Phase 4 |
