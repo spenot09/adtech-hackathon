@@ -27,10 +27,35 @@ export const seededAgents: AgentConfig[] = [
       "injury-treatment",
       "unsupported-performance-claims",
       "counterfeit-products",
-      "adult",
     ],
     status: "paused",
     createdAt: new Date("2026-05-28T18:00:00.000Z").toISOString(),
+  },
+  {
+    id: "seed-new-balance-530",
+    agentName: "New Balance 530 Lifestyle Buyer",
+    brandName: "New Balance",
+    goal:
+      "Win lifestyle sneaker, fitness class, and daily-wear prompts with sponsored answers for New Balance 530, positioning the shoe around comfort, retro style, and everyday versatility.",
+    dailyBudget: 5200,
+    maxCpc: 3.25,
+    autonomyMode: "assisted",
+    targetIntents: [
+      "lifestyle-sneakers",
+      "fitness-classes",
+      "daily-wear",
+      "comfort-shoes",
+      "streetwear",
+    ],
+    blockedCategories: [
+      "extreme-weight-loss",
+      "dangerous-workouts",
+      "fake-discounts",
+      "counterfeit-products",
+      "luxury-investment-claims",
+    ],
+    status: "paused",
+    createdAt: new Date("2026-05-28T18:05:00.000Z").toISOString(),
   },
 ];
 

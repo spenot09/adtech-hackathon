@@ -22,8 +22,8 @@ type ActiveTab = "Agents" | "Simulation" | "Policies" | "Analytics";
 
 const navItems = [
   { label: "Agents", icon: Bot },
-  { label: "Simulation", icon: RadioTower },
   { label: "Policies", icon: ShieldCheck },
+  { label: "Simulation", icon: RadioTower },
   { label: "Analytics", icon: Gauge },
 ] satisfies Array<{ label: ActiveTab; icon: typeof Bot }>;
 
