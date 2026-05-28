@@ -61,13 +61,21 @@
 - Configurable simulation tempo / opportunity volume controls
 - Export of decision log and analytics as CSV/JSON
 
+### Overmind Agent Supervision
+
+- [ ] **OBS-01**: Server-side LLM calls for intent/risk scoring or generated ad copy can be traced with Overmind's JS/TS SDK
+- [ ] **OBS-02**: Each bid decision captures trace metadata: campaign config, opportunity prompt, policy checks, decision, bid amount, generated ad, and review outcome
+- [ ] **OBS-03**: Overmind configuration is environment-driven and optional for local demo runs (`OVERMIND_API_KEY`, deployment environment, provider keys)
+- [ ] **OBS-04**: A policy description and small evaluation dataset exist for future Overmind optimizer registration
+
 ## Out of Scope
 
 - Real ad exchange or publisher integrations — demo prioritizes convincing simulation over wired infrastructure
 - Real payments or billing — spend is simulated against the configured cap
 - Multi-tenant auth / user management — single-user demo
 - Persistent storage beyond the demo session — in-memory or local store is sufficient
-- Production-grade observability, monitoring, or rate limiting — not needed for a 4-hour demo
+- Production-grade rate limiting - not needed for a 4-hour demo
+- Production-grade observability is deferred to Phase 5 so it does not block the 4-hour MVP
 
 ## Traceability
 
@@ -101,3 +109,7 @@
 | HUMAN-02 | Phase 4 |
 | HUMAN-03 | Phase 4 |
 | DEMO-01 | Phase 4 |
+| OBS-01 | Phase 5 |
+| OBS-02 | Phase 5 |
+| OBS-03 | Phase 5 |
+| OBS-04 | Phase 5 |

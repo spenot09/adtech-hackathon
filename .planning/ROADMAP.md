@@ -2,11 +2,15 @@
 
 **Granularity:** coarse
 **Mode:** mvp (vertical slices — each phase ships an end-to-end demoable capability)
-**Coverage:** 24/24 v1 requirements mapped
+**Coverage:** 24/24 v1 requirements mapped; 4/4 v2 Overmind requirements deferred
 
 ## North Star
 
 End-to-end demo flow (DEMO-01): create a travel-brand agent → configure → start simulation → see safe bids won, unsafe skipped, one risky bid escalated → analytics update live.
+
+## Post-MVP North Star
+
+AgentBid Studio can become a production-grade agent control plane by sending bidding-agent traces to Overmind for supervision, anomaly review, regression-aware optimization, and eventual fine-tuning loops.
 
 ## Phases
 
@@ -14,6 +18,7 @@ End-to-end demo flow (DEMO-01): create a travel-brand agent → configure → st
 - [ ] **Phase 2: Live Bidding Simulation** — Opportunity stream, agent decisions, generated ads visible in the feed
 - [ ] **Phase 3: Analytics & Safety Rails** — Live metrics panel and enforced safety controls (budget cap, max CPC, blocked categories, pause)
 - [ ] **Phase 4: Human-in-the-Loop & Demo Polish** — Approval queue, decision log, autonomy modes, and end-to-end demo run
+- [ ] **Phase 5: Overmind Agent Supervision** - Production tracing, anomaly review, and optimizer-ready datasets for bidding-agent improvement
 
 ## Phase Details
 
@@ -73,6 +78,19 @@ End-to-end demo flow (DEMO-01): create a travel-brand agent → configure → st
 **Plans:** TBD
 **UI hint:** yes
 
+### Phase 5: Overmind Agent Supervision
+**Goal:** AgentBid Studio emits enough structured agent telemetry for Overmind to supervise bidding behavior, catch anomalous decisions, and support future optimizer/fine-tuning workflows.
+**Mode:** production-readiness
+**Depends on:** Phase 4
+**Requirements:** OBS-01, OBS-02, OBS-03, OBS-04
+**Success Criteria** (what must be TRUE):
+  1. Real LLM calls used for intent/risk scoring or generated ad copy are instrumented with Overmind's JS/TS tracing SDK on the server side.
+  2. Each bid decision is represented as a traceable workflow with campaign config, opportunity prompt, policy checks, decision, bid amount, generated ad, and human-review outcome where applicable.
+  3. The app exposes clear deployment configuration for `OVERMIND_API_KEY`, deployment environment, and provider keys without making Overmind required for the local hackathon demo.
+  4. A small evaluation dataset and policy description exist so the bidding agent can later be registered with the Overmind optimizer.
+**Plans:** TBD
+**UI hint:** optional
+
 ## Progress
 
 | Phase | Plans Complete | Status | Completed |
@@ -81,3 +99,4 @@ End-to-end demo flow (DEMO-01): create a travel-brand agent → configure → st
 | 2. Live Bidding Simulation | 0/0 | Not started | - |
 | 3. Analytics & Safety Rails | 0/0 | Not started | - |
 | 4. Human-in-the-Loop & Demo Polish | 0/0 | Not started | - |
+| 5. Overmind Agent Supervision | 0/0 | Deferred | - |
