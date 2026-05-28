@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { DEMO_SCENARIOS } from "@/lib/simulation/demo-scenarios";
 import { FIXTURE_AGENTS } from "@/lib/simulation/fixtures";
 import AdCard from "@/components/live-feed/AdCard";
@@ -29,82 +29,30 @@ const actionConfig = {
 export default function WalkthroughPanel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [revealedDecisions, setRevealedDecisions] = useState(0);
-  const [autoAdvancing, setAutoAdvancing] = useState(false);
-  const [opportunityVisible, setOpportunityVisible] = useState(false);
-
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const progressRef = useRef<HTMLDivElement | null>(null);
 
   const scenario = DEMO_SCENARIOS[activeIndex]!;
   const isLastScenario = activeIndex === DEMO_SCENARIOS.length - 1;
   const bothRevealed = revealedDecisions >= 2;
 
-  function clearTimer() {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
-  }
-
-  // Reveal sequence triggered on activeIndex change
-  useEffect(() => {
-    setRevealedDecisions(0);
-    setOpportunityVisible(false);
-    setAutoAdvancing(false);
-    clearTimer();
-
-    // Fade in opportunity after one tick
-    const t0 = setTimeout(() => setOpportunityVisible(true), 50);
-
-    // Reveal first decision after 800ms
-    const t1 = setTimeout(() => {
-      setRevealedDecisions(1);
-    }, 800);
-
-    // Reveal second decision after 1600ms
-    const t2 = setTimeout(() => {
-      setRevealedDecisions(2);
-    }, 1600);
-
-    return () => {
-      clearTimeout(t0);
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
-  }, [activeIndex]);
-
-  // Auto-advance timer starts when both decisions are revealed (not on last scenario)
-  useEffect(() => {
-    if (!bothRevealed || isLastScenario) return;
-
-    setAutoAdvancing(true);
-
-    timerRef.current = setTimeout(() => {
-      advance();
-    }, 3000);
-
-    return () => clearTimer();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bothRevealed, isLastScenario]);
-
-  function advance() {
-    clearTimer();
-    setAutoAdvancing(false);
-    if (activeIndex < DEMO_SCENARIOS.length - 1) {
+  // Each click of Next reveals one more step:
+  // 0 → show Nike decision, 1 → show NB decision, 2 → advance to next scenario
+  function next() {
+    if (revealedDecisions < 2) {
+      setRevealedDecisions((n) => n + 1);
+    } else if (!isLastScenario) {
       setActiveIndex((i) => i + 1);
+      setRevealedDecisions(0);
     }
   }
 
   function jumpTo(index: number) {
-    clearTimer();
-    setAutoAdvancing(false);
     setActiveIndex(index);
+    setRevealedDecisions(0);
   }
 
   function restart() {
-    clearTimer();
-    setAutoAdvancing(false);
     setActiveIndex(0);
+    setRevealedDecisions(0);
   }
 
   const agentIds = ["nike", "nb"] as const;
@@ -129,11 +77,7 @@ export default function WalkthroughPanel() {
       </div>
 
       {/* Scenario card */}
-      <div
-        className={`rounded-xl border border-gray-700 bg-gray-900 p-5 mt-4 transition-opacity duration-300 ${
-          opportunityVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
+      <div className="rounded-xl border border-gray-700 bg-gray-900 p-5 mt-4">
         {/* Top row: badges */}
         <div className="flex flex-wrap items-center gap-2 mb-2">
           <span
@@ -246,22 +190,15 @@ export default function WalkthroughPanel() {
         </div>
       </div>
 
-      {/* Auto-advance progress bar */}
-      <div className="h-0.5 bg-gray-700 rounded mt-4 overflow-hidden">
-        <div
-          ref={progressRef}
-          className="h-full bg-white rounded"
-          style={{
-            width: autoAdvancing ? "0%" : "100%",
-            transition: autoAdvancing ? "width 3s linear" : "none",
-          }}
-        />
-      </div>
-
       {/* Controls */}
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex justify-between items-center mt-5">
         <span className="text-xs text-gray-600">
           Scenario {activeIndex + 1} of {DEMO_SCENARIOS.length}
+          {revealedDecisions < 2 && (
+            <span className="ml-2 text-gray-700">
+              · {2 - revealedDecisions} decision{2 - revealedDecisions === 1 ? "" : "s"} remaining
+            </span>
+          )}
         </span>
         <div className="flex gap-2">
           {isLastScenario && bothRevealed ? (
@@ -269,15 +206,18 @@ export default function WalkthroughPanel() {
               onClick={restart}
               className="px-4 py-1.5 rounded-lg bg-gray-700 text-gray-200 text-sm font-medium hover:bg-gray-600 transition-colors"
             >
-              Restart
+              ↺ Restart
             </button>
           ) : (
             <button
-              onClick={advance}
-              disabled={isLastScenario && bothRevealed}
-              className="px-4 py-1.5 rounded-lg bg-white text-gray-900 text-sm font-medium hover:bg-gray-200 transition-colors disabled:opacity-40"
+              onClick={next}
+              className="px-4 py-1.5 rounded-lg bg-white text-gray-900 text-sm font-medium hover:bg-gray-200 transition-colors"
             >
-              Next →
+              {revealedDecisions === 0
+                ? "Reveal Nike →"
+                : revealedDecisions === 1
+                ? "Reveal New Balance →"
+                : "Next Scenario →"}
             </button>
           )}
         </div>
