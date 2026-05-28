@@ -88,7 +88,7 @@ export default function Home() {
               <Activity size={20} />
             </div>
             <div>
-              <p className="text-sm font-semibold text-ink">AgentBid Studio</p>
+              <p className="text-sm font-semibold text-ink">Cortex</p>
               <p className="text-xs text-slate-500">Buy-side agents</p>
             </div>
           </div>

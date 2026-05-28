@@ -1,4 +1,4 @@
-// Shared types for AgentBid Studio — consumed by Phase 1 and Phase 2
+// Shared types for Cortex — consumed by Phase 1 and Phase 2
 
 export type AutonomyMode = "manual" | "assisted" | "autonomous";
 
